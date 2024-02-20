@@ -1,5 +1,6 @@
-from PIL import Image
 import time
+
+from PIL import Image
 
 # старт таймера
 start_time = time.time()
@@ -19,7 +20,7 @@ for y in range(img.height):
         # Получение цвета пикселя
         color = pixels[x, y]
         # Добавление цвета в словарь или увеличение счетчика
-        color_count[color] = color_count.get(color,  0) + 1
+        color_count[color] = color_count.get(color, 0) + 1
 
 # конец таймера + вычисление времени
 end_time = time.time()
