@@ -35,9 +35,9 @@ cv2.rectangle(image, (spacing, first_layer + random()), (first_fig, first_layer 
 cv2.rectangle(image, (first_fig + spacing, first_layer + random()), (second_fig, first_layer + width + random()), (0, 255, 0), -1)
 cv2.rectangle(image, (second_fig + spacing, first_layer + random()), (third_fig, first_layer + width + random()), (255, 0, 0), -1)
 
-cv2.circle(image, (spacingC, second_layer + random()), int(width / 2), (0, 0, 0), -1)
-cv2.circle(image, (second_figC + spacingC + random(), second_layer + random()), int(width / 2), (0, 255, 255), -1)
-cv2.circle(image, (third_figC + spacingC * 3 + random(), second_layer + random()), int(width / 2), (255, 255, 0), -1)
+cv2.circle(image, (spacingC, second_layer + random()), int(width / 2) + random(), (0, 0, 0), -1)
+cv2.circle(image, (second_figC + spacingC + random(), second_layer + random()), int(width / 2) + random(), (0, 255, 255), -1)
+cv2.circle(image, (third_figC + spacingC * 3 + random(), second_layer + random()), int(width / 2) + random(), (255, 255, 0), -1)
 
 
 # нахождение контуров
