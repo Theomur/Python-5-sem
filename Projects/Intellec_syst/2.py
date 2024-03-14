@@ -33,7 +33,7 @@ points = np.array([[spacing + int(width / 2), first_layer - 50],
                    [spacing + width + 10, first_layer + int(width / 2)]])
 cv2.drawContours(image, [points], 0, (100, 0, 100), -1)
 cv2.rectangle(image, (first_fig + spacing, first_layer), (second_fig, first_layer + width), (0, 255, 0), -1)
-points = np.array([[second_fig + spacing, first_layer], [second_fig + spacing, first_layer + width], [third_fig, first_layer + int(width / 2)]])
+points = np.array([[600, 350], [800, 350], [700, 150]])
 cv2.drawContours(image, [points], 0, (255, 0, 0), -1)
 points = np.array([[forth_fig + 30, first_layer],
                    [forth_fig - 30, first_layer + width],
@@ -77,6 +77,8 @@ pentagon_count = 0
 hexagon_count = 0
 circle_count = 0
 unknown_count = 0
+rhombus_count = 0
+trapezoid_count = 0
 
 for contour in contours:
     M = cv2.moments(contour)
@@ -118,12 +120,15 @@ cv2.putText(result, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
 
 # Выводим количество каждого типа фигур
 print(text)
-print("Total number of shapes:", len(contours))
-print("Triangles -", triangle_count)
-print("Squares -", square_count)
-print("Rectangles -", rectangle_count)
-print("Pentagons -", pentagon_count)
-print("Circles -", circle_count)
+print("Total number of figures:", len(contours))
+print("Triangles –", triangle_count)
+print("Squares –", square_count)
+print("Trapezoids –", trapezoid_count)
+print("Rhombuses –", rhombus_count)
+print("Rectangles –", rectangle_count)
+print("Pentagons –", pentagon_count)
+print("Hexagons –", hexagon_count)
+print("Circles –", circle_count)
 
 
 # Отображаем результат
