@@ -106,7 +106,7 @@ for contour in contours:
                 Shape = "Circle"
                 circle_count += 1
 
-        cv2.putText(result, Shape, (cX, cY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (100, 100, 100), 1)
+        cv2.putText(result, Shape, (cX, cY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (150, 150, 150), 1)
         cv2.circle(result, (cX, cY), 2, (0, 0, 0), -1)
         cv2.drawContours(result, [contour], -1, (0, 0, 0), 2)
 
