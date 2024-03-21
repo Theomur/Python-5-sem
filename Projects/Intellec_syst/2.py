@@ -93,6 +93,7 @@ rhombus_count = 0
 trapezoid_count = 0
 
 
+# Функции
 def get_angle(p1, p2, p3):
     v1 = np.array([p1[0] - p2[0], p1[1] - p2[1]])
     v2 = np.array([p1[0] - p3[0], p1[1] - p3[1]])
@@ -106,10 +107,11 @@ def unit_vector(v):
     return v / np.linalg.norm(v)
 
 
-def loose_equ(a, b, wiggle):
+def error_wiggle(a, b, wiggle):
     return abs(a - b) <= wiggle
 
 
+# Главный цикл
 for contour in contours:
     M = cv2.moments(contour)
     if M["m00"] != 0:
@@ -125,11 +127,11 @@ for contour in contours:
                 angle2 = get_angle(Apprx[1][0], Apprx[2][0], Apprx[0][0])
                 angle3 = get_angle(Apprx[2][0], Apprx[0][0], Apprx[1][0])
 
-                if (loose_equ(angle1, 60, 2) and loose_equ(angle2, 60, 2)):
+                if (error_wiggle(angle1, 60, 2) and error_wiggle(angle2, 60, 2)):
                     Shape = "equal triangle"
                     equal_triangle_count += 1
                     triangle_count += 1
-                elif (loose_equ(angle1, angle2, 3) or loose_equ(angle1, angle3, 3) or loose_equ(angle3, angle2, 3)):
+                elif (error_wiggle(angle1, angle2, 2) or error_wiggle(angle1, angle3, 2) or error_wiggle(angle3, angle2, 2)):
                     Shape = "isosceles triangle"
                     isosceles_triangle_count += 1
                     triangle_count += 1
